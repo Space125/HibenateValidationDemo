@@ -17,20 +17,24 @@ import java.util.Date;
 @Data
 public class Airplane {
 
+    @Null
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Size(min = 1, max = 50)
+    @NotEmpty
+   // @Size(min = 1, max = 50)
     @Column(name = "name")
     private String name;
 
     @NotNull
+    @NotEmpty
     @Size(min = 1, max = 50)
     @Column(name = "country")
     private String country;
 
+    @NotEmpty
     @Column(name = "airplaneType")
     //@Enumerated(EnumType.STRING)
     @EnumValidator(enumClazz = AirplaneType.class)
@@ -56,6 +60,7 @@ public class Airplane {
     @Max(9999)
     @Column(name = "crewSize")
     private Integer crewSize;
+
 
     @Column(name = "rating")
     private Double rating;

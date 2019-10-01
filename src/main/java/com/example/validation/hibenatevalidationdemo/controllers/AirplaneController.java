@@ -1,7 +1,7 @@
 package com.example.validation.hibenatevalidationdemo.controllers;
 
-import com.example.validation.hibenatevalidationdemo.services.AirplaneService;
 import com.example.validation.hibenatevalidationdemo.models.Airplane;
+import com.example.validation.hibenatevalidationdemo.services.AirplaneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +28,15 @@ public class AirplaneController {
         if (airplane == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
+//        Игрался с датой
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//        String dateString = format.format(airplane.getProdDate());
+//        try {
+//            airplane.setProdDate(format.parse("3007-01-01"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
         airplane.setRating(airplaneService.calcRating(airplane));
 
