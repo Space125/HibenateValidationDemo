@@ -1,4 +1,4 @@
-package com.example.validation.hibenatevalidationdemo;
+package com.example.validation.hibenatevalidationdemo.services;
 
 import com.example.validation.hibenatevalidationdemo.models.Airplane;
 import com.example.validation.hibenatevalidationdemo.repositories.AirplaneRepository;

@@ -1,7 +1,6 @@
 package com.example.validation.hibenatevalidationdemo.controllers;
 
-import com.example.validation.hibenatevalidationdemo.AirplaneService;
-import com.example.validation.hibenatevalidationdemo.AirplaneServiceImpl;
+import com.example.validation.hibenatevalidationdemo.services.AirplaneService;
 import com.example.validation.hibenatevalidationdemo.models.Airplane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
