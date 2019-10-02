@@ -24,7 +24,7 @@ public class Airplane {
 
     @NotNull
     @NotEmpty
-   // @Size(min = 1, max = 50)
+    @Size(min = 1, max = 50)
     @Column(name = "name")
     private String name;
 
@@ -37,7 +37,7 @@ public class Airplane {
     @NotEmpty
     @Column(name = "airplaneType")
     //@Enumerated(EnumType.STRING)
-    @EnumValidator(enumClazz = AirplaneType.class)
+    @EnumValidator(enumClass = AirplaneType.class)
     //private AirplaneType airplaneType;
     private String airplaneType;
 

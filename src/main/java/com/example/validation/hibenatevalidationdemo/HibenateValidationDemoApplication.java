@@ -10,4 +10,6 @@ public class HibenateValidationDemoApplication {
         SpringApplication.run(HibenateValidationDemoApplication.class, args);
     }
 
+
+
 }

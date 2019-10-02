@@ -2,7 +2,7 @@ package com.example.validation.hibenatevalidationdemo.controllers;
 
 import com.example.validation.hibenatevalidationdemo.models.Airplane;
 import com.example.validation.hibenatevalidationdemo.services.AirplaneService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +17,11 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/rest")
+@RequiredArgsConstructor
 public class AirplaneController {
 
-    @Autowired
-    private AirplaneService airplaneService;
+
+    private final AirplaneService airplaneService;
 
     @PostMapping(value = "/airplanes")
     public ResponseEntity<Airplane> createAirplane(@Valid @RequestBody Airplane airplane){

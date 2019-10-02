@@ -2,7 +2,7 @@ package com.example.validation.hibenatevalidationdemo.services;
 
 import com.example.validation.hibenatevalidationdemo.models.Airplane;
 import com.example.validation.hibenatevalidationdemo.repositories.AirplaneRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -15,10 +15,11 @@ import java.util.TimeZone;
  * @author Ivan Kurilov on 01.10.2019
  */
 @Service
+@RequiredArgsConstructor
 public class AirplaneServiceImpl implements AirplaneService {
 
-    @Autowired
-    private AirplaneRepository airplaneRepository;
+
+    private final AirplaneRepository airplaneRepository;
 
     @Override
     public List<Airplane> getAllAirplanes() {

@@ -17,7 +17,7 @@ import java.lang.annotation.*;
 @NotNull(message = "Value cannot be null")
 @ReportAsSingleViolation
 public @interface EnumValidator {
-    Class<? extends Enum<?>> enumClazz();
+    Class<? extends Enum<?>> enumClass();
 
     String message() default "Value is not valid";
 
