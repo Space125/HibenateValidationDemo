@@ -9,18 +9,15 @@ import java.util.Date;
  */
 public class DateValidatorImpl implements ConstraintValidator<DateValidator, Date> {
 
-
-
     @Override
     public void initialize(DateValidator constraintAnnotation) {
-
     }
 
     @Override
     public boolean isValid(Date date, ConstraintValidatorContext constraintValidatorContext) {
+
         long beginPeriodDate = 26192235600000L;
         long endPeriodDate = 33134734799000L;
-        System.out.println(date);
 
         return date.getTime() > beginPeriodDate && date.getTime() < endPeriodDate;
     }

@@ -30,15 +30,7 @@ public class AirplaneController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-//        Игрался с датой
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//        String dateString = format.format(airplane.getProdDate());
-//        try {
-//            airplane.setProdDate(format.parse("3007-01-01"));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-
+        // Вычисялем рейтинг согластно задания
         airplane.setRating(airplaneService.calcRating(airplane));
 
         airplaneService.createAirplane(airplane);
