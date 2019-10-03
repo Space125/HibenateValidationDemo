@@ -14,7 +14,7 @@ public interface AirplaneService {
 
     void createAirplane(Airplane airplane);
 
-    void updateAirplane(Long id, Airplane Airplane);
+    void updateAirplane(Airplane airplane);
 
     void deleteAirplane(Long id);
 

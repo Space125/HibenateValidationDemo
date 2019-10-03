@@ -37,8 +37,8 @@ public class AirplaneServiceImpl implements AirplaneService {
     }
 
     @Override
-    public void updateAirplane(Long id, Airplane Airplane) {
-
+    public void updateAirplane(Airplane airplane) {
+        airplaneRepository.save(airplane);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.example.validation.hibenatevalidationdemo.models;
 
+import com.example.validation.hibenatevalidationdemo.utils.New;
+import com.example.validation.hibenatevalidationdemo.utils.Update;
 import com.example.validation.hibenatevalidationdemo.validations.DateValidator;
 import com.example.validation.hibenatevalidationdemo.validations.EnumValidator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,48 +20,55 @@ import java.util.Date;
 @Data
 public class Airplane {
 
-    @Null
+    @Null(groups = {New.class})
+//    @NotNull(groups = {Update.class})
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @NotEmpty
-    @Size(min = 1, max = 50)
+    @NotNull(groups = {New.class})
+    @NotEmpty(groups = {New.class})
+//    @Null(groups = {Update.class})
+    @Size(min = 1, max = 50, groups = {New.class, Update.class})
     @Column(name = "name")
     private String name;
 
-    @NotNull
-    @NotEmpty
-    @Size(min = 1, max = 50)
+    @NotNull(groups = {New.class})
+    @NotEmpty(groups = {New.class})
+//    @Null(groups = {Update.class})
+    @Size(min = 1, max = 50, groups = {New.class, Update.class})
     @Column(name = "country")
     private String country;
 
-    @NotEmpty
+    @NotEmpty(groups = {New.class})
+//    @Null(groups = {Update.class})
     @Column(name = "airplaneType")
     //@Enumerated(EnumType.STRING)
-    @EnumValidator(enumClass = AirplaneType.class)
+    @EnumValidator(enumClass = AirplaneType.class, groups = {New.class, Update.class})
     //private AirplaneType airplaneType;
     private String airplaneType;
 
-    @NotNull
+    @NotNull(groups = {New.class})
+//    @Null(groups = {Update.class})
     @Column(name = "prodDate")
-    @DateValidator
+    @DateValidator(groups = {New.class, Update.class})
     private Date prodDate;
 
     @Column(name = "isUsed")
     @JsonProperty
     private boolean isUsed;
 
-    @NotNull
-    @DecimalMin("0.01")
-    @DecimalMax("0.99")
+    @NotNull(groups = {New.class})
+//    @Null(groups = {Update.class})
+    @DecimalMin(value = "0.01", groups = {New.class, Update.class})
+    @DecimalMax(value = "0.99", groups = {New.class, Update.class})
     @Column(name = "speed")
     private Double speed;
 
-    @NotNull
-    @Min(1)
-    @Max(9999)
+    @NotNull(groups = {New.class})
+//    @Null(groups = {Update.class})
+    @Min(value = 1, groups = {New.class, Update.class})
+    @Max(value = 9999, groups = {New.class, Update.class})
     @Column(name = "crewSize")
     private Integer crewSize;
 
