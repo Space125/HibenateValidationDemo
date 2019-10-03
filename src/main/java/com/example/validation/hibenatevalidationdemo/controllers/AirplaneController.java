@@ -28,7 +28,7 @@ public class AirplaneController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        // Вычисялем рейтинг согластно задания
+        // Вычисляем рейтинг согласно задания
         airplane.setRating(airplaneService.calcRating(airplane));
 
         airplaneService.createAirplane(airplane);
@@ -89,7 +89,7 @@ public class AirplaneController {
             updateAirplane.setCrewSize(checkAirplaneById.getCrewSize());
         }
 
-        // Вычисялем рейтинг согластно задания
+        // Вычисляем рейтинг согласно задания
         updateAirplane.setRating(airplaneService.calcRating(updateAirplane));
 
         airplaneService.updateAirplane(updateAirplane);
