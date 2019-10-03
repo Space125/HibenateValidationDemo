@@ -1,5 +1,6 @@
 package com.example.validation.hibenatevalidationdemo.models;
 
+import com.example.validation.hibenatevalidationdemo.validations.DateValidator;
 import com.example.validation.hibenatevalidationdemo.validations.EnumValidator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -43,6 +44,7 @@ public class Airplane {
 
     @NotNull
     @Column(name = "prodDate")
+    @DateValidator
     private Date prodDate;
 
     @Column(name = "isUsed")
