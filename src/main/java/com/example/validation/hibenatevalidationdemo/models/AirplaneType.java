@@ -6,5 +6,6 @@ package com.example.validation.hibenatevalidationdemo.models;
 public enum AirplaneType {
     TRANSPORT,
     MILITARY,
-    PASSENGER
+    PASSENGER,
+    MERCHANT
 }

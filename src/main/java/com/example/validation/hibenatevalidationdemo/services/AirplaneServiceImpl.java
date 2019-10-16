@@ -3,6 +3,7 @@ package com.example.validation.hibenatevalidationdemo.services;
 import com.example.validation.hibenatevalidationdemo.models.Airplane;
 import com.example.validation.hibenatevalidationdemo.repositories.AirplaneRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -22,8 +23,9 @@ public class AirplaneServiceImpl implements AirplaneService {
     private final AirplaneRepository airplaneRepository;
 
     @Override
-    public List<Airplane> getAllAirplanes() {
-        return null;
+    @SuppressWarnings("unchecked")
+    public List getAllAirplanes(Specification spec) {
+        return airplaneRepository.findAll(spec);
     }
 
     @Override
