@@ -43,23 +43,23 @@ public class AirplaneController {
             @RequestParam(value = "minRating", required = false) Double minRating,
             @RequestParam(value = "maxRating", required = false) Double maxRating) {
 
-        Specification specByName = new StringSpecification(
+        Specification<Airplane> specByName = new StringSpecification(
                 new StringCriteria("name", ":", name));
 
-        Specification specByCountry = new StringSpecification(
+        Specification<Airplane> specByCountry = new StringSpecification(
                 new StringCriteria("country", ":", country));
 
-        Specification specByAirplaneType = new StringSpecification(
+        Specification<Airplane> specByAirplaneType = new StringSpecification(
                 new StringCriteria("airplaneType", ":", airplaneType));
 
-        Specification specDateBetween = null;
+        Specification<Airplane> specDateBetween = null;
         if (after != null && before != null) {
             Date afterDate = new Date(after);
             Date beforeDate = new Date(before);
             specDateBetween = new DateBetweenSpecification(new DateBetweenCriteria(afterDate, beforeDate));
         }
 
-        Specification specIsUsed = null;
+        Specification<Airplane> specIsUsed = null;
         if (isUsed != null) {
             specIsUsed = new BooleanSpecification(new BooleanCriteria(isUsed));
         }
@@ -73,8 +73,10 @@ public class AirplaneController {
         Specification<Airplane> specRating = new DoubleBetweenSpecification(
                 new DoubleBetweenCriteria("rating", minRating, maxRating));
 
-        @SuppressWarnings("unchecked")
-        Specification specResult = Specification.where(specByName)
+        assert specDateBetween != null;
+        assert specIsUsed != null;
+
+        Specification<Airplane> specResult = Specification.where(specByName)
                 .and(specByCountry)
                 .and(specByAirplaneType)
                 .and(specDateBetween)
@@ -114,11 +116,9 @@ public class AirplaneController {
             return ResponseEntity.notFound().build();
         }
 
-        Field[] fields = airplane.getClass().getDeclaredFields();
-
-
         Airplane updateAirplane = new Airplane();
 
+        Field[] fields = updateAirplane.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
             try {

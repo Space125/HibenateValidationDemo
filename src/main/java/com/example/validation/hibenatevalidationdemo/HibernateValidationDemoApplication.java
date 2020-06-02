@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HibenateValidationDemoApplication {
+public class HibernateValidationDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HibenateValidationDemoApplication.class, args);
+        SpringApplication.run(HibernateValidationDemoApplication.class, args);
     }
 
 
