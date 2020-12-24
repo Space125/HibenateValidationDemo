@@ -6,6 +6,7 @@ import com.example.validation.hibenatevalidationdemo.services.AirplaneService;
 import com.example.validation.hibenatevalidationdemo.specifications.*;
 import com.example.validation.hibenatevalidationdemo.utils.New;
 import com.example.validation.hibenatevalidationdemo.utils.Update;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/rest")
 @RequiredArgsConstructor
+@Api(tags = "Airplane Controller")
 public class AirplaneController {
 
 

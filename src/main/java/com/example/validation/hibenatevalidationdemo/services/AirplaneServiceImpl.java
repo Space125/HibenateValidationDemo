@@ -23,8 +23,7 @@ public class AirplaneServiceImpl implements AirplaneService {
     private final AirplaneRepository airplaneRepository;
 
     @Override
-    @SuppressWarnings("unchecked")
-    public List getAllAirplanes(Specification spec) {
+    public List getAllAirplanes(Specification<Airplane> spec) {
         return airplaneRepository.findAll(spec);
     }
 
@@ -73,7 +72,7 @@ public class AirplaneServiceImpl implements AirplaneService {
 
         int prodDate = calendar.get(Calendar.YEAR);
 
-        return new BigDecimal((80 * airplane.getSpeed() * k) / (3019 - prodDate + 1))
+        return BigDecimal.valueOf((80 * airplane.getSpeed() * k) / (3019 - prodDate + 1))
                 .setScale(2, RoundingMode.HALF_EVEN).doubleValue();
     }
 }

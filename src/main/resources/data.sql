@@ -1,19 +1,3 @@
-drop table if exists airplane;
-
-create table airplane
-(
-    id            BIGINT(20)  NOT NULL AUTO_INCREMENT,
-    name          VARCHAR(50) NULL,
-    country       VARCHAR(50) NULL,
-    airplane_type VARCHAR(9)  NULL,
-    prod_date     date        NULL,
-    is_used       BIT(1)      NULL,
-    speed         DOUBLE      NULL,
-    crew_size     INT(4)      NULL,
-    rating        DOUBLE      NULL,
-    PRIMARY KEY (id)
-);
-
 insert into airplane (name, country, airplane_type, prod_date, is_used, speed, crew_size, rating)
 values ('Boeing 737 Aeroflot', 'Russia', 'PASSENGER', '3007-01-01', false, 0.54, 200, 3.32)
      , ('Orion III', 'Mars', 'MERCHANT', '2995-01-01', true, 0.82, 617, 1.31)

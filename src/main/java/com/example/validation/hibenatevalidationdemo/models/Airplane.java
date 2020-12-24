@@ -4,7 +4,7 @@ import com.example.validation.hibenatevalidationdemo.utils.New;
 import com.example.validation.hibenatevalidationdemo.utils.Update;
 import com.example.validation.hibenatevalidationdemo.validations.DateValidator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -16,7 +16,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "airplane")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Airplane {
 
     @Null(groups = {New.class})
@@ -37,18 +40,18 @@ public class Airplane {
     private String country;
 
     @NotEmpty(groups = {New.class})
-    @Column(name = "airplaneType")
+    @Column(name = "airplane_Type")
     @Enumerated(EnumType.STRING)
     //@EnumValidator(enumClass = AirplaneType.class, groups = {New.class, Update.class})
     private AirplaneType airplaneType;
     //private String airplaneType;
 
     @NotNull(groups = {New.class})
-    @Column(name = "prodDate")
+    @Column(name = "prod_Date")
     @DateValidator(groups = {New.class, Update.class})
     private Date prodDate;
 
-    @Column(name = "isUsed")
+    @Column(name = "is_Used")
     @JsonProperty
     private boolean isUsed;
 
@@ -61,11 +64,12 @@ public class Airplane {
     @NotNull(groups = {New.class})
     @Min(value = 1, groups = {New.class, Update.class})
     @Max(value = 9999, groups = {New.class, Update.class})
-    @Column(name = "crewSize")
+    @Column(name = "crew_Size")
     private Integer crewSize;
 
 
     @Column(name = "rating")
     private Double rating;
+
 
 }

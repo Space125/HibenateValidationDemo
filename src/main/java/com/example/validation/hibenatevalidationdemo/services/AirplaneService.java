@@ -9,7 +9,7 @@ import java.util.List;
  * @author Ivan Kurilov on 01.10.2019
  */
 public interface AirplaneService {
-    List<Airplane> getAllAirplanes(Specification spec);
+    List<Airplane> getAllAirplanes(Specification<Airplane> spec);
 
     List<Airplane> getAllAirplanes(Integer pageNumber, Integer pageSize, String sortBy);
 
@@ -24,5 +24,6 @@ public interface AirplaneService {
     Integer getCount();
 
     Double calcRating(Airplane airplane);
+
 
 }
